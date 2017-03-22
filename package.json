@@ -1,0 +1,19 @@
+{
+  "name": "deploy-postgrest-test",
+  "version": "0.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -t 1000"
+  },
+  "author": "Johan Peeters",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:JohanPeeters/postgREST-deployment.git"
+  },
+  "description": "tests for PostgREST deployment",
+  "devDependencies": {
+    "chakram": "^1.5.0",
+    "mocha": "^3.2.0"
+  }
+}

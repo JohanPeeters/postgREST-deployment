@@ -1,0 +1,21 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:9.6.2-alpine
+    container_name: ${POSTGRES_NAME}
+    ports:
+      - "5432:5432"
+    environment:
+      KC_USER: ${KC_DB_OWNER}
+      KC_PASSWORD: ${KC_DB_OWNER_PWD}
+    volumes:
+      - ./initdb:/docker-entrypoint-initdb.d
+      - pg_data:/var/lib/postgresql/data
+  postgrest:
+    image: begriffs/postgrest:v0.3.2.0
+    ports:
+      - "3000:3000"
+    links:
+      - postgres:postgres
+volumes:
+  pg_data:
