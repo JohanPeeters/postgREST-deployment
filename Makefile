@@ -1,4 +1,4 @@
-.PHONY: test run build rm stop verify stop-postgres rm-postgres
+.PHONY: test run clean-run build rm stop verify stop-postgres rm-postgres
 
 include .env
 
@@ -32,7 +32,7 @@ build:
 run: verify
 	@docker-compose up --build
 
-clean-run: verify rm-postgres
+clean-run: rm-postgres
 	-@docker volume rm orchestration_pg_data
 	@make run
 

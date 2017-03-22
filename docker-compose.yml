@@ -6,11 +6,11 @@ services:
     ports:
       - "5432:5432"
     environment:
-      KC_USER: ${KC_DB_OWNER}
-      KC_PASSWORD: ${KC_DB_OWNER_PWD}
+      USER: ${DB_OWNER}
+      PASSWORD: ${DB_OWNER_PWD}
     volumes:
       - ./initdb:/docker-entrypoint-initdb.d
-      - pg_data:/var/lib/postgresql/data
+      #- pg_data:/var/lib/postgresql/data
   postgrest:
     image: begriffs/postgrest:v0.3.2.0
     ports:
